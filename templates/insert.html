@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insert Message - StegaVault</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="logo">StegaVault</div>
+    </header>
+    <div class="container large-container">
+        <h2>Encrypt a <span class="highlight">Secret Message</span></h2>
+        <form action="/insert" method="post" enctype="multipart/form-data">
+            <label class="file-label">
+                <input type="file" name="image" id="image-upload" required onchange="showFileName(this)">
+                <span class="custom-upload">📤 Upload Image</span>
+            </label>
+            <p id="file-name">No file chosen</p>
+            <textarea name="message" placeholder="Enter your secret message" required></textarea>
+            <button type="submit" class="btn">Encrypt Message</button>
+        </form>
+        <br>
+        <a href="/" class="back-btn">⬅ Back</a>
+    </div>
+    <div class="background-animation"></div>
+
+    <script>
+        function showFileName(input) {
+            let fileName = input.files[0] ? input.files[0].name : "No file chosen";
+            document.getElementById("file-name").textContent = fileName;
+        }
+    </script>
+</body>
+</html>
